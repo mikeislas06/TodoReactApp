@@ -1,4 +1,3 @@
-import { stringify } from 'postcss';
 import React from 'react';
 
 const TodoItem = ({ title, status, index, todoArray, setTodoArray, filter }) => {
@@ -21,7 +20,6 @@ const TodoItem = ({ title, status, index, todoArray, setTodoArray, filter }) => 
 
         }
         else{
-            console.log(index);
             updatedTodos[index].status = true;
             setTodoArray(updatedTodos);
             

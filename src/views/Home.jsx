@@ -97,7 +97,7 @@ const Home = () => {
                 <FilterTodo filter={filter} setFilter={setFilter} />
                 <TodoList>
                     {
-                        (todoArray?.length > 0 || JSON.parse(localStorage.getItem("recycleBin")).length > 0) &&
+                        (todoArray?.length > 0 || JSON.parse(localStorage.getItem("recycleBin"))?.length > 0) &&
                             renderSwitch(filter)
                     }
                 </TodoList>
