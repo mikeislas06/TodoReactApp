@@ -29,8 +29,8 @@ const Home = () => {
 
     const handleAddTodo = () => {
         if(todoTitle !== ""){
-            setLocalStorage();
             setTodoArray([...todoArray, {title: todoTitle, status: false}]);
+            setLocalStorage();
             setTodoTitle("");
         }
         else {
@@ -78,9 +78,10 @@ const Home = () => {
                 )
             case "Recycle":
                 return(
-                    JSON.parse(localStorage.getItem("recycleBin")).map((task, i) => (
-                        <TodoItem title={task.title} status={task.status} index={i} todoArray={todoArray} setTodoArray={setTodoArray} filter={filter} key={i} />
-                    ))
+                    JSON.parse(localStorage.getItem("recycleBin")).map((task, i) => {
+                        console.log(filter);
+                        return <TodoItem title={task.title} status={task.status} index={i} todoArray={todoArray} setTodoArray={setTodoArray} filter={filter} key={i} />
+                    })
                 )
             default:
                 alert("Option not supported");
@@ -90,7 +91,7 @@ const Home = () => {
 
     return (
         <div className="h-screen flex justify-center items-center">
-            <div className="bg-main_purple w-full md:w-1/2 lg:w-1/3 xl:w-1/4 text-white rounded h-4/5 overflow-y-auto shadow-out">
+            <div className="bg-main_purple w-full md:w-1/2 lg:w-1/3 text-white rounded h-4/5 overflow-y-auto shadow-out">
                 <h2 className="text-left text-3xl px-10 pt-10 pb-5">TODO List</h2>
                 
                 <AddTodo setTodoTitle={setTodoTitle} handleAddTodo={handleAddTodo} todoTitle={todoTitle} />

@@ -7,7 +7,7 @@ const FilterTodo = ({ filter, setFilter }) => {
             <button className={`${filter === "Completed" ? "underline" : ""}`} onClick={() => setFilter("Completed")}>Completed</button>
             <button className={`${filter === "Pending" ? "underline" : ""}`} onClick={() => setFilter("Pending")}>Pending</button>
             <button className={`${filter === "Recycle" ? "underline" : ""}`} onClick={() => setFilter("Recycle")}>🗑</button>
-            <button className={`${filter === "Recycle" ? "underline" : ""}`} onClick={() => {localStorage.setItem("recycleBin", JSON.stringify([]))}}>Clear 🗑</button>
+            <button className={`${filter === "Recycle" ? "underline" : ""}`} onClick={() => localStorage.setItem("recycleBin", JSON.stringify([]))}>Clear 🗑</button>
         </div>
     );
 };
